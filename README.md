@@ -120,3 +120,432 @@ Introducing MED-O-NEXT, a groundbreaking all-in-one medical web app designed to 
  </td>
 </tr>
 </table>
+
+## Folder Structure
+```plaintext
+Directory structure:
+└── megh2005-med-o-next-hackathon/
+    ├── README.md
+    ├── CODE_OF_CONDUCT.md
+    ├── CONTRIBUTING.md
+    ├── LICENSE.md
+    ├── SECURITY.md
+    ├── med-o-ai/
+    │   ├── README.md
+    │   ├── components.json
+    │   ├── next.config.ts
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── postcss.config.mjs
+    │   ├── tailwind.config.ts
+    │   ├── tsconfig.json
+    │   ├── .eslintrc.json
+    │   ├── .gitignore
+    │   ├── public/
+    │   └── src/
+    │       ├── middleware.ts
+    │       ├── app/
+    │       │   ├── Providers.tsx
+    │       │   ├── globals.css
+    │       │   ├── layout.tsx
+    │       │   ├── page.tsx
+    │       │   ├── api/
+    │       │   │   ├── auth/
+    │       │   │   │   └── [...nextauth]/
+    │       │   │   │       └── route.ts
+    │       │   │   ├── coach/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── lens/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── prescription/
+    │       │   │   │   └── [id]/
+    │       │   │   │       └── route.ts
+    │       │   │   └── recommendation/
+    │       │   │       └── [id]/
+    │       │   │           └── route.ts
+    │       │   ├── fonts/
+    │       │   │   ├── GeistMonoVF.woff
+    │       │   │   └── GeistVF.woff
+    │       │   └── u/
+    │       │       ├── layout.tsx
+    │       │       ├── coach/
+    │       │       │   └── page.tsx
+    │       │       ├── home/
+    │       │       │   └── page.tsx
+    │       │       ├── lens/
+    │       │       │   └── page.tsx
+    │       │       ├── prescription/
+    │       │       │   └── [id]/
+    │       │       │       └── page.tsx
+    │       │       ├── prescriptions/
+    │       │       │   └── page.tsx
+    │       │       ├── recommendation/
+    │       │       │   └── [id]/
+    │       │       │       └── page.tsx
+    │       │       └── recommendations/
+    │       │           └── page.tsx
+    │       ├── components/
+    │       │   ├── ErrorCard.tsx
+    │       │   ├── HomeTopbar.tsx
+    │       │   ├── ImageShimmer.tsx
+    │       │   ├── PrescriptionCard.tsx
+    │       │   ├── PrescriptionDetailsShimmer.tsx
+    │       │   ├── PrescriptionShimmer.tsx
+    │       │   ├── PrescriptionsList.tsx
+    │       │   ├── RecommendationCard.tsx
+    │       │   ├── RecommendationDetailsShimmer.tsx
+    │       │   ├── RecommendationList.tsx
+    │       │   ├── RecommendationShimmer.tsx
+    │       │   ├── TextShimmer.tsx
+    │       │   └── ui/
+    │       │       ├── background-beams.tsx
+    │       │       ├── background-gradient-animation.tsx
+    │       │       ├── card-hover-effect.tsx
+    │       │       ├── file-upload.tsx
+    │       │       ├── flip-words.tsx
+    │       │       ├── floating-dock.tsx
+    │       │       └── text-generate-effect.tsx
+    │       ├── hooks/
+    │       │   └── use-outside-click.ts
+    │       ├── interfaces/
+    │       │   ├── HealthRecommendation.ts
+    │       │   ├── Prescription.ts
+    │       │   └── User.ts
+    │       ├── lib/
+    │       │   ├── auth.ts
+    │       │   ├── db.ts
+    │       │   ├── utils.ts
+    │       │   └── cloudinary/
+    │       │       ├── config.ts
+    │       │       └── uploadToCloudinary.ts
+    │       ├── models/
+    │       │   ├── HealthRecommendation.ts
+    │       │   ├── Prescription.ts
+    │       │   └── User.ts
+    │       ├── types/
+    │       │   ├── next-auth.d.ts
+    │       │   └── tailwindcss-flattenColorPalette.d.ts
+    │       └── utils/
+    │           └── ApiResponse.ts
+    ├── med-o-chat/
+    │   ├── README.md
+    │   ├── components.json
+    │   ├── next.config.mjs
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── postcss.config.mjs
+    │   ├── tailwind.config.ts
+    │   ├── tsconfig.json
+    │   ├── .eslintrc.json
+    │   ├── .gitignore
+    │   ├── public/
+    │   └── src/
+    │       ├── middleware.ts
+    │       ├── app/
+    │       │   ├── AuthProvider.tsx
+    │       │   ├── StoreProvider.tsx
+    │       │   ├── globals.css
+    │       │   ├── layout.tsx
+    │       │   ├── page.tsx
+    │       │   ├── api/
+    │       │   │   ├── accept-invitation/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── all-messages/
+    │       │   │   │   └── [chatId]/
+    │       │   │   │       └── route.ts
+    │       │   │   ├── cancel-invitation/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── chat-details/
+    │       │   │   │   └── [chatId]/
+    │       │   │   │       └── route.ts
+    │       │   │   ├── check-invitation/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── conversations/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── invitations/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── login/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── reject-invitation/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── search/
+    │       │   │   │   └── route.ts
+    │       │   │   ├── send-message/
+    │       │   │   │   └── route.ts
+    │       │   │   └── update-lang-prefs/
+    │       │   │       └── route.ts
+    │       │   ├── chats/
+    │       │   │   ├── page.tsx
+    │       │   │   └── [chatId]/
+    │       │   │       └── page.tsx
+    │       │   └── login/
+    │       │       └── page.tsx
+    │       ├── components/
+    │       │   ├── ChatInput.tsx
+    │       │   ├── ChatLangPrefs.tsx
+    │       │   ├── ChatMessage.tsx
+    │       │   ├── ChatNavbar.tsx
+    │       │   ├── ChatUser.tsx
+    │       │   ├── ChatUserSkeleton.tsx
+    │       │   ├── Conversations.tsx
+    │       │   ├── CustomToast.tsx
+    │       │   ├── InvitationBox.tsx
+    │       │   ├── InvitationCard.tsx
+    │       │   ├── InvitationCardSkeleton.tsx
+    │       │   ├── Loader.tsx
+    │       │   ├── MessagesContainer.tsx
+    │       │   ├── Search.tsx
+    │       │   ├── SearchedUser.tsx
+    │       │   ├── SearchedUserSkeleton.tsx
+    │       │   ├── UserInfo.tsx
+    │       │   ├── UserInfoSkeleton.tsx
+    │       │   └── ui/
+    │       │       ├── alert-dialog.tsx
+    │       │       ├── avatar.tsx
+    │       │       ├── button.tsx
+    │       │       ├── card.tsx
+    │       │       ├── drawer.tsx
+    │       │       ├── input.tsx
+    │       │       ├── popover.tsx
+    │       │       ├── scroll-area.tsx
+    │       │       ├── select.tsx
+    │       │       ├── separator.tsx
+    │       │       ├── skeleton.tsx
+    │       │       └── textarea.tsx
+    │       ├── hooks/
+    │       │   ├── useLangPrefsUpdate.tsx
+    │       │   └── useNewMessage.tsx
+    │       ├── interfaces/
+    │       │   └── ConversationDetails.ts
+    │       ├── lib/
+    │       │   ├── constants.ts
+    │       │   ├── db.ts
+    │       │   ├── hooks.ts
+    │       │   ├── pusher.ts
+    │       │   ├── store.ts
+    │       │   ├── utils.ts
+    │       │   └── features/
+    │       │       ├── conversationDetails/
+    │       │       │   └── conversationDetailsSlice.ts
+    │       │       ├── conversations/
+    │       │       │   ├── conversationsConfigSlice.ts
+    │       │       │   └── conversationsSlice.ts
+    │       │       ├── invitation/
+    │       │       │   ├── invitationConfigSlice.ts
+    │       │       │   └── invitationSlice.ts
+    │       │       └── user/
+    │       │           ├── userConfig.ts
+    │       │           └── userSlice.ts
+    │       ├── models/
+    │       │   ├── conversation.model.ts
+    │       │   ├── invitation.model.ts
+    │       │   ├── message.model.ts
+    │       │   └── user.model.ts
+    │       ├── services/
+    │       │   └── firebase/
+    │       │       └── config.ts
+    │       ├── types/
+    │       │   ├── InvitationRequest.ts
+    │       │   ├── MessageRequest.ts
+    │       │   ├── TranslationRequest.ts
+    │       │   └── UserDetailsAndPrefs.ts
+    │       └── utils/
+    │           ├── ApiError.ts
+    │           ├── ApiSuccess.ts
+    │           ├── ConvertMongoDate.ts
+    │           ├── CustomRequest.ts
+    │           ├── convertDate.ts
+    │           ├── encodeJWT.ts
+    │           └── languages.ts
+    ├── med-o-next-home/
+    │   ├── README.md
+    │   ├── components.json
+    │   ├── next.config.mjs
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── postcss.config.mjs
+    │   ├── tailwind.config.ts
+    │   ├── tsconfig.json
+    │   ├── .eslintrc.json
+    │   ├── .gitignore
+    │   ├── app/
+    │   │   ├── globals.css
+    │   │   ├── layout.tsx
+    │   │   ├── page.tsx
+    │   │   ├── about/
+    │   │   │   └── page.tsx
+    │   │   ├── apps/
+    │   │   │   └── page.tsx
+    │   │   ├── contact/
+    │   │   │   └── page.tsx
+    │   │   ├── fonts/
+    │   │   │   ├── GeistMonoVF.woff
+    │   │   │   └── GeistVF.woff
+    │   │   └── team/
+    │   │       └── page.tsx
+    │   ├── components/
+    │   │   ├── Footer.tsx
+    │   │   └── ui/
+    │   │       ├── animated-testimonials.tsx
+    │   │       ├── card-hover-effect.tsx
+    │   │       ├── floating-navbar.tsx
+    │   │       ├── hero-highlight.tsx
+    │   │       └── hero-parallax.tsx
+    │   ├── lib/
+    │   │   ├── utils.ts
+    │   │   ├── actions/
+    │   │   │   └── submitContactForm.ts
+    │   │   └── db/
+    │   │       └── index.ts
+    │   └── models/
+    │       └── Response.ts
+    └── med-o-shop/
+        ├── backend/
+        │   ├── package-lock.json
+        │   ├── package.json
+        │   ├── tsconfig.json
+        │   ├── .gitignore
+        │   ├── public/
+        │   │   └── uploads/
+        │   │       └── .gitkeep
+        │   └── src/
+        │       ├── app.ts
+        │       ├── index.ts
+        │       ├── controllers/
+        │       │   ├── address.controller.ts
+        │       │   ├── admin.controller.ts
+        │       │   ├── auth.controller.ts
+        │       │   ├── cart.controller.ts
+        │       │   ├── order.controller.ts
+        │       │   ├── product.controller.ts
+        │       │   └── search.controller.ts
+        │       ├── db/
+        │       │   └── index.ts
+        │       ├── lib/
+        │       │   ├── interfaces/
+        │       │   │   ├── Address.ts
+        │       │   │   ├── Cart.ts
+        │       │   │   ├── CustomRequest.ts
+        │       │   │   ├── Order.ts
+        │       │   │   ├── Product.ts
+        │       │   │   └── User.ts
+        │       │   └── schemas/
+        │       │       ├── address.schema.ts
+        │       │       ├── product.schema.ts
+        │       │       ├── signin.schema.ts
+        │       │       └── signup.schema.ts
+        │       ├── middlewares/
+        │       │   ├── auth.middleware.ts
+        │       │   └── multer.middleware.ts
+        │       ├── models/
+        │       │   ├── address.model.ts
+        │       │   ├── cart.model.ts
+        │       │   ├── order.model.ts
+        │       │   ├── product.model.ts
+        │       │   └── user.model.ts
+        │       ├── routes/
+        │       │   ├── address.route.ts
+        │       │   ├── admin.route.ts
+        │       │   ├── auth.route.ts
+        │       │   ├── cart.route.ts
+        │       │   ├── mainRouter.ts
+        │       │   ├── order.route.ts
+        │       │   ├── product.route.ts
+        │       │   └── search.route.ts
+        │       └── utils/
+        │           ├── ApiResponse.ts
+        │           ├── asyncHandler.ts
+        │           ├── cloudinary.ts
+        │           ├── constants.ts
+        │           ├── errorHandler.ts
+        │           └── getCloudinaryId.ts
+        └── frontend/
+            ├── README.md
+            ├── components.json
+            ├── eslint.config.js
+            ├── index.html
+            ├── package-lock.json
+            ├── package.json
+            ├── postcss.config.js
+            ├── tailwind.config.js
+            ├── tsconfig.app.json
+            ├── tsconfig.json
+            ├── tsconfig.node.json
+            ├── vite.config.ts
+            ├── .gitignore
+            ├── public/
+            └── src/
+                ├── App.tsx
+                ├── index.css
+                ├── main.tsx
+                ├── vite-env.d.ts
+                ├── assets/
+                ├── components/
+                │   ├── Address.tsx
+                │   ├── CartItem.tsx
+                │   ├── FilterBox.tsx
+                │   ├── HeroSection.tsx
+                │   ├── Navbar.tsx
+                │   ├── ProductAdminItem.tsx
+                │   ├── ProductManageForm.tsx
+                │   ├── ProductSearchResult.tsx
+                │   ├── SearchInput.tsx
+                │   ├── SearchResults.tsx
+                │   ├── SearchResultsSection.tsx
+                │   ├── ShopByCategory.tsx
+                │   └── ui/
+                │       ├── button.tsx
+                │       ├── calendar.tsx
+                │       ├── card.tsx
+                │       ├── carousel.tsx
+                │       ├── checkbox.tsx
+                │       ├── dialog.tsx
+                │       ├── form.tsx
+                │       ├── input.tsx
+                │       ├── label.tsx
+                │       ├── popover.tsx
+                │       ├── radio-group.tsx
+                │       ├── select.tsx
+                │       ├── separator.tsx
+                │       └── textarea.tsx
+                ├── lib/
+                │   ├── utils.ts
+                │   ├── interfaces/
+                │   │   ├── Address.ts
+                │   │   ├── Cart.ts
+                │   │   ├── Order.ts
+                │   │   ├── Product.ts
+                │   │   └── RootState.ts
+                │   ├── redux/
+                │   │   ├── appStore.ts
+                │   │   └── slices/
+                │   │       ├── cartSlice.ts
+                │   │       ├── filterSlice.ts
+                │   │       └── searchSlice.ts
+                │   └── schemas/
+                │       ├── address.schema.ts
+                │       ├── filter.schema.ts
+                │       ├── product.schema.ts
+                │       ├── signin.schema.ts
+                │       └── signup.schema.ts
+                ├── pages/
+                │   ├── AddProduct.tsx
+                │   ├── Admin.tsx
+                │   ├── AdminRoot.tsx
+                │   ├── BillingAddress.tsx
+                │   ├── Cart.tsx
+                │   ├── Home.tsx
+                │   ├── OrderFailure.tsx
+                │   ├── OrderSuccessfull.tsx
+                │   ├── PlaceOrder.tsx
+                │   ├── ProductDetails.tsx
+                │   ├── SearchPage.tsx
+                │   ├── SignIn.tsx
+                │   ├── Signup.tsx
+                │   ├── UpdateProduct.tsx
+                │   ├── UserHome.tsx
+                │   └── UserRoot.tsx
+                └── utils/
+                    ├── constants.ts
+                    └── searchRequest.ts
+```
